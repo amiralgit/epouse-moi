@@ -1,0 +1,490 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Épouse-moi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;600;700&family=Pinyon+Script&display=swap">
+<style>
+/* Direction : papier kraft, vert olive, or patiné. Photos unifiées par un même voile olive et une légère désaturation. */
+:root {
+  --bg: #eee8dc;
+  --paper: #fbf8f1;
+  --kraft: #d8ccb2;
+  --ink: #2e2b26;
+  --muted: #6b6456;
+  --olive: #4a5136;
+  --sage: #9aa27f;
+  --gold: #a8875a;
+  --line: #cfc3a6;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --script: "Pinyon Script", cursive;
+  --tone: saturate(0.72) sepia(0.14) contrast(0.96);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1f231a;
+    --paper: #2a2f22;
+    --kraft: #3a3a2c;
+    --ink: #efe9da;
+    --muted: #bdb6a3;
+    --olive: #b9c19a;
+    --sage: #7d8662;
+    --gold: #d2b282;
+    --line: #4a4f3c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1f231a;
+  --paper: #2a2f22;
+  --ink: #efe9da;
+  --muted: #bdb6a3;
+  --olive: #b9c19a;
+  --sage: #7d8662;
+  --gold: #d2b282;
+  --line: #4a4f3c;
+  --kraft: #3a3a2c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-inline: 16px;
+  overflow-x: hidden;
+}
+.wrap {
+  position: relative;
+  max-width: 740px;
+  margin: 0 auto;
+  padding-block: 28px 64px;
+}
+.hero {
+  position: relative;
+  background: var(--olive);
+  color: #fbf8f1;
+  border-radius: 4px;
+  padding: 44px 28px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background: url("/_blob/f993e89b41fc6a5114cbe300cae56380") center 60% / cover no-repeat;
+  filter: var(--tone);
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(74, 81, 54, 0.78), rgba(74, 81, 54, 0.92));
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(251, 248, 241, 0.35);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero > *:not(.hero-photo) { position: relative; z-index: 2; }
+.seal {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #c9a878, var(--gold) 60%, #8c6d44);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.15), 0 4px 10px rgba(0,0,0,0.25);
+}
+.seal span {
+  font-family: var(--script);
+  font-size: 34px;
+  color: #3d2e1a;
+  line-height: 1;
+  margin-top: 6px;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--kraft);
+  margin: 0 0 10px;
+}
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(44px, 10vw, 68px);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+.lede {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  max-width: 36ch;
+  margin: 0 auto;
+  color: #e6e0cf;
+}
+.fern {
+  display: block;
+  width: 180px;
+  height: 46px;
+  margin: 22px auto 0;
+}
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 46px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-wrap: balance;
+}
+h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+h2 .n {
+  font-family: var(--script);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--gold);
+  font-size: 30px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 22px 24px 20px;
+  margin-block: 14px;
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: -1px;
+  height: 3px;
+  background: var(--sage);
+}
+.band {
+  position: relative;
+  height: 150px;
+  margin: -22px -24px 18px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+.band .tone {
+  position: absolute;
+  inset: 0;
+  filter: var(--tone);
+  background-size: cover;
+  background-position: center;
+}
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(74, 81, 54, 0.1), rgba(74, 81, 54, 0.45));
+}
+.band.beach { background-image: url("/_blob/052abc7081ce8492aea38f051890505c"); }
+.band.breakfast { background-image: url("/_blob/18a93d787a9ad9ba59bc661612e76ce7"); background-position: center 40%; }
+.band.wide { height: 200px; margin: 28px 0 0; border-radius: 4px; }
+.band.wide.couple { background-image: url("/_blob/9379b4ae03a74e068b7f0afb694c3912"); background-position: center 30%; }
+.band { filter: var(--tone); }
+.band::after { filter: none; }
+.medallion {
+  float: right;
+  width: 168px;
+  height: 168px;
+  margin: 0 0 10px 16px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: url("/_blob/a409dd492193db12153a2bf63d2cdd43") center / cover no-repeat;
+  filter: var(--tone);
+  box-shadow: 0 0 0 4px var(--paper);
+}
+.photo-card {
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+}
+.photo-card.beach-card {
+  background-image: linear-gradient(rgba(251, 248, 241, 0.5), rgba(251, 248, 241, 0.5)), url("/_blob/052abc7081ce8492aea38f051890505c");
+}
+.photo-card.breakfast-card {
+  background-image: linear-gradient(rgba(251, 248, 241, 0.5), rgba(251, 248, 241, 0.5)), url("/_blob/18a93d787a9ad9ba59bc661612e76ce7");
+  background-position: center 40%;
+}
+.photo-card, .photo-card .intro { color: #2e2b26; }
+.photo-card > * { text-shadow: 0 0 6px rgba(251, 248, 241, 0.9); }
+.photo-card .phase strong { color: #3f4530; }
+.photo-card .when { color: #7a5a2e; }
+.photo-card ul.todo li { color: #2e2b26; }
+.photo-card .note { color: #4a4538; border-top-color: #8a8270; }
+.photo-card a { color: #2f3524; text-decoration-color: #7a5a2e; }
+.photo-card a:hover { color: #000; }
+.phase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+  margin: 0 0 12px;
+}
+.phase strong {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--olive);
+}
+.when {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+ul.todo { list-style: none; padding: 0; margin: 0; display: grid; gap: 11px; }
+ul.todo li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+ul.todo input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  accent-color: var(--olive);
+}
+a { color: var(--olive); font-weight: 600; overflow-wrap: anywhere; text-decoration-color: var(--gold); }
+.note {
+  display: block;
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 15px;
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 18px;
+}
+.questions { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+.questions li { border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.questions li:last-child { border-bottom: 0; padding-bottom: 0; }
+.say {
+  display: block;
+  margin-top: 8px;
+  background: var(--kraft);
+  color: var(--ink);
+  border-radius: 3px;
+  padding: 10px 14px;
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 17px;
+}
+.sources a { display: block; margin: 7px 0; font-size: 15px; }
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.intro { color: var(--muted); margin: 0 0 8px; }
+.footer-band {
+  position: relative;
+  height: 480px;
+  margin-top: 56px;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center 30%;
+  background-image: url("/_blob/9379b4ae03a74e068b7f0afb694c3912");
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.footer-band .tone { position: absolute; inset: 0; filter: var(--tone); background: inherit; }
+.footer-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 81, 54, 0.55);
+}
+.footer-band span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--script);
+  font-size: 48px;
+  color: #fbf8f1;
+}
+footer {
+  margin-top: 16px;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  padding-top: 16px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: border-color 0.2s; }
+  .card:hover { border-color: var(--sage); }
+}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="seal" aria-hidden="true"><span>É·M</span></div>
+    <p class="eyebrow">Carnet de route</p>
+    <h1>Épouse-moi</h1>
+    <p class="lede">Le dossier, étape par étape. Petit comité, témoins uniquement, mai 2027.</p>
+    <svg class="fern" viewBox="0 0 180 46" aria-hidden="true">
+      <g fill="none" stroke="#e6e0cf" stroke-width="1.2" stroke-linecap="round">
+        <path d="M6 40 Q 60 20 170 12"/>
+        <path d="M30 32 q -6 -10 4 -14 M50 27 q -4 -12 8 -14 M74 22 q -4 -12 8 -14 M98 18 q -4 -12 8 -13 M122 15 q -3 -10 7 -12"/>
+        <path d="M30 32 q 8 4 10 -4 M50 27 q 9 3 9 -6 M74 22 q 8 3 9 -6 M98 18 q 8 3 9 -6"/>
+      </g>
+    </svg>
+  </header>
+
+  <section>
+    <h2><span class="n">I.</span> Le lieu</h2>
+    <div class="card photo-card beach-card" role="img" aria-label="Plage de Crète, eau turquoise et sable rosé">
+      <p class="phase"><strong>À confirmer selon la mairie</strong><span class="when">Octobre 2026</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Lieu choisi"><span>Choisir la commune : Kissamos (pour Balos), Chania ou Rethymnon. Le lieu dépend de la mairie qui célèbre.</span></li>
+        <li><input type="checkbox" aria-label="Jours de cérémonie"><span>Vérifier les jours de cérémonie. À Chania, les mariages civils ont lieu uniquement le jeudi.</span></li>
+      </ul>
+      <p class="note">Rethymnon n'est plus retenue par défaut : elle reste une option, pas une destination.</p>
+      <div class="sources">
+        <a href="https://www.chania.gr/files/57/44617/civil_marriages_documents_for_foreigners_of_abroad_no5_(en).pdf" target="_blank" rel="noopener">Mairie de Chania : documents pour étrangers résidant à l'étranger</a>
+        <a href="https://www.rethymno.gr/en/foreigner/civil-weddings" target="_blank" rel="noopener">Mairie de Rethymnon : mariage civil pour étrangers</a>
+        <a href="https://www.wedinspire.com/articles/destination/getting-married-in-crete/" target="_blank" rel="noopener">Guide : se marier en Crète (anglais)</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">II.</span> Les papiers</h2>
+    <div class="card">
+      <div class="medallion" role="img" aria-label="Bague en or, texturée"></div>
+      <p class="phase"><strong>Pour chacun des deux</strong><span class="when">Novembre à avril</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Acte de naissance"><span>Acte de naissance de moins de 3 mois, avec mentions marginales.</span></li>
+        <li><input type="checkbox" aria-label="Pièce d'identité"><span>Pièce d'identité valide pendant toute la durée du séjour.</span></li>
+        <li><input type="checkbox" aria-label="Acte de divorce"><span>Pour le divorce d'un des deux : jugement ou copie d'acte, avec mention sur l'acte de naissance.</span></li>
+        <li><input type="checkbox" aria-label="Licence de mariage"><span>Licence ou certificat de non-empêchement, traduit et certifié en grec, avec sa date de délivrance.</span></li>
+        <li><input type="checkbox" aria-label="Certificat de capacité"><span>Certificat de capacité à mariage : à demander au consulat ou à l'ambassade de France, pas à la mairie d'Angers. Délai de plusieurs semaines, parfois plusieurs mois.</span></li>
+      </ul>
+      <p class="note">Point à trancher par écrit : les documents français doivent-ils être apostillés ? Les sources se contredisent.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">III.</span> Apostilles et traductions</h2>
+    <div class="card">
+      <p class="phase"><strong>Avant la traduction</strong><span class="when">Décembre à février</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Apostille"><span>Faire apostiller (définition : certification officielle délivrée par le tribunal, qui atteste l'authenticité de la signature et du sceau d'un acte pour qu'il soit reconnu à l'étranger) les actes au tribunal judiciaire compétent (Angers pour les actes d'Angers).</span></li>
+        <li><input type="checkbox" aria-label="Liste des traducteurs"><span>Demander à la mairie la liste des traducteurs qu'elle accepte, avant de commander.</span></li>
+        <li><input type="checkbox" aria-label="Traduction grecque"><span>Faire traduire en grec les documents apostillés.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">IV.</span> La mairie grecque</h2>
+    <div class="card">
+      <p class="phase"><strong>Écrire, puis déposer</strong><span class="when">Octobre 2026, puis avril 2027</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Email à la mairie"><span>Écrire à la mairie choisie. Demander : documents exacts, témoins, langue, tarif, mode de paiement, date limite, dépôt à distance possible ou non.</span></li>
+        <li><input type="checkbox" aria-label="Dépôt"><span>Déposer le dossier complet, au moins 3 jours ouvrables avant la cérémonie (délai indiqué par Rethymnon, à confirmer).</span></li>
+        <li><input type="checkbox" aria-label="Paiement"><span>Payer les frais municipaux, généralement entre 100 et 550 €.</span></li>
+      </ul>
+      <div class="sources">
+        <a href="https://www.mfa.gr/fr/services/affaires-administratives/actes-detat-civil/" target="_blank" rel="noopener">Ministère grec des Affaires étrangères : actes d'état civil</a>
+        <a href="https://e-justice.europa.eu/pdf-export/5972_fr" target="_blank" rel="noopener">Atlas judiciaire européen : documents publics grecs</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">V.</span> Les témoins</h2>
+    <div class="card">
+      <p class="phase"><strong>Deux témoins, présents le jour J</strong><span class="when">Janvier à mai</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Choisir les témoins"><span>Choisir les témoins.</span></li>
+        <li><input type="checkbox" aria-label="Éligibilité des témoins"><span>Vérifier avec la mairie l'âge minimum et les pièces d'identité des témoins.</span></li>
+        <li><input type="checkbox" aria-label="Présence"><span>Confirmer la présence de chacun, avec passeport ou carte d'identité.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">VI.</span> Après le retour</h2>
+    <div class="card photo-card breakfast-card" role="img" aria-label="Petit-déjeuner face à la mer, en Crète">
+      <p class="phase"><strong>Faire valider en France</strong><span class="when">40 jours, puis transcription</span></p>
+      <ul class="todo">
+        <li><input type="checkbox" aria-label="Enregistrement grec"><span>Faire enregistrer le mariage en Grèce dans les délais indiqués par la mairie.</span></li>
+        <li><input type="checkbox" aria-label="Traduction de l'acte"><span>Faire traduire l'acte de mariage grec en français.</span></li>
+        <li><input type="checkbox" aria-label="Transcription"><span>Demander la transcription au service central d'état civil, à Nantes, avec l'acte apostillé et sa traduction.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">VII.</span> Ressources et témoignages</h2>
+    <div class="card sources">
+      <p class="intro" style="margin-top:0">Les forums sont des témoignages, parfois anciens. Les sites commerciaux vendent des services : à lire comme tels.</p>
+      <a href="https://www.routard.com/forums/t/projet-de-mariage-civil-en-crete/150168" target="_blank" rel="noopener">Forum Routard : projet de mariage civil en Crète</a>
+      <a href="https://www.routard.com/forums/t/conseil-formalites-mariage-en-crete-septembre-2025/453479" target="_blank" rel="noopener">Forum Routard : formalités, septembre 2025</a>
+      <a href="https://www.routard.com/forums/t/mariage-crete-lieux-renseignements/278367" target="_blank" rel="noopener">Forum Routard : lieux et renseignements</a>
+      <a href="https://www.routard.com/forums/t/mariage-a-preparer-en-crete-vos-bonnes-adresses/233429" target="_blank" rel="noopener">Forum Routard : bonnes adresses</a>
+      <a href="https://rethymnotours.com/fr/guides/weddings-in-crete" target="_blank" rel="noopener">Guide commercial : Rethymno Tours <span class="badge">commercial</span></a>
+      <a href="https://www.nocedereve.fr/mariage-a-letranger/un-mariage-en-crete" target="_blank" rel="noopener">Guide commercial : Noce de Rêve <span class="badge">commercial</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">VIII.</span> À vérifier avec la mairie</h2>
+    <div class="card">
+      <ul class="questions">
+        <li><strong>Apostille des documents français</strong> : obligatoire ou non ?<span class="say">« Bonjour, pour un mariage civil de deux ressortissants français, les actes et certificats émis en France doivent-ils être apostillés avant traduction en grec ? Merci de me confirmer la liste exacte par écrit. »</span></li>
+        <li><strong>Publication préalable</strong> : faut-il publier un avis de mariage avant la demande de licence ?<span class="say">« Bonjour, la publication d'un avis de mariage dans un journal local est-elle exigée avant la demande de licence ? Si oui, combien de jours à l'avance et dans quel journal ? »</span></li>
+        <li><strong>Contrat de mariage</strong> : formalité réelle ou exigence sans fondement ?<span class="say">« Bonjour, un contrat de mariage signé avant la cérémonie est-il exigé pour une cérémonie civile dans votre commune, ou s'agit-il d'une option ? »</span></li>      </ul>
+    </div>
+  </section>
+
+  <div class="footer-band" role="img" aria-label="Couple sur la plage, en Crète"><span>Épouse-moi</span></div>
+
+  <footer>
+    Carnet établi le 7 octobre 2026. Les délais et règles sont à confirmer auprès des autorités avant toute réservation.
+  </footer>
+</div>
+
+</body></html>
