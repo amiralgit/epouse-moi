@@ -1,6 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Épouse-moi</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;600;700&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;600;700&family=Great+Vibes&family=Pinyon+Script&display=swap">
 <style>
 /* Direction : papier kraft, vert olive, or patiné. Photos unifiées par un même voile olive et une légère désaturation. */
 :root {
@@ -68,20 +68,40 @@ body {
   color: #fbf8f1;
   border-radius: 4px;
   padding: 44px 28px 40px;
-  text-align: center;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
   overflow: hidden;
 }
 .hero-photo {
   position: absolute;
   inset: 0;
-  background: url("/_blob/f993e89b41fc6a5114cbe300cae56380") center 60% / cover no-repeat;
-  filter: var(--tone);
+  background: url("images/hero.jpg") center top / cover no-repeat;
 }
 .hero-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(74, 81, 54, 0.78), rgba(74, 81, 54, 0.92));
+  background: linear-gradient(to bottom, rgba(30, 32, 22, 0.35) 0%, transparent 30%), linear-gradient(to right, rgba(30, 32, 22, 0.6) 0%, rgba(30, 32, 22, 0.25) 35%, transparent 55%);
+}
+.hero > h1.hero-title {
+  position: absolute;
+  top: 24px;
+  right: 180px;
+  z-index: 2;
+  margin: 0;
+  text-align: right;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(40px, 7.5vw, 60px);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fbf8f1;
+  text-shadow: 0 1px 2px rgba(30, 32, 22, 0.5), 0 0 14px rgba(30, 32, 22, 0.45);
 }
 .hero::before {
   content: "";
@@ -93,23 +113,6 @@ body {
   z-index: 1;
 }
 .hero > *:not(.hero-photo) { position: relative; z-index: 2; }
-.seal {
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #c9a878, var(--gold) 60%, #8c6d44);
-  display: grid;
-  place-items: center;
-  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.15), 0 4px 10px rgba(0,0,0,0.25);
-}
-.seal span {
-  font-family: var(--script);
-  font-size: 34px;
-  color: #3d2e1a;
-  line-height: 1;
-  margin-top: 6px;
-}
 .eyebrow {
   font-size: 12px;
   font-weight: 700;
@@ -132,14 +135,32 @@ h1 {
   font-size: 20px;
   font-style: italic;
   max-width: 36ch;
-  margin: 0 auto;
+  margin: 0;
   color: #e6e0cf;
 }
 .fern {
   display: block;
   width: 180px;
   height: 46px;
-  margin: 22px auto 0;
+  margin: 22px 0 0;
+}
+.hero > .eyebrow,
+.hero > .lede,
+.hero > .fern {
+  max-width: min(260px, 44%);
+}
+.hero > .eyebrow.sky-label {
+  position: absolute;
+  top: 84px;
+  left: 0;
+  right: 0;
+  padding-right: 16%;
+  max-width: none;
+  margin: 0;
+  text-align: center;
+  color: #0b1420;
+  font-weight: 700;
+  text-shadow: none;
 }
 h2 {
   font-family: var(--serif);
@@ -205,10 +226,10 @@ h2 .n {
   inset: 0;
   background: linear-gradient(rgba(74, 81, 54, 0.1), rgba(74, 81, 54, 0.45));
 }
-.band.beach { background-image: url("/_blob/052abc7081ce8492aea38f051890505c"); }
-.band.breakfast { background-image: url("/_blob/18a93d787a9ad9ba59bc661612e76ce7"); background-position: center 40%; }
+.band.beach { background-image: url("images/plage.jpg"); }
+.band.breakfast { background-image: url("images/petit-dejeuner.jpg"); background-position: center 40%; }
 .band.wide { height: 200px; margin: 28px 0 0; border-radius: 4px; }
-.band.wide.couple { background-image: url("/_blob/9379b4ae03a74e068b7f0afb694c3912"); background-position: center 30%; }
+.band.wide.couple { background-image: url("images/couple.jpg"); background-position: center 30%; }
 .band { filter: var(--tone); }
 .band::after { filter: none; }
 .medallion {
@@ -218,7 +239,7 @@ h2 .n {
   margin: 0 0 10px 16px;
   border-radius: 50%;
   border: 2px solid var(--gold);
-  background: url("/_blob/a409dd492193db12153a2bf63d2cdd43") center / cover no-repeat;
+  background: url("images/alliances.jpg") center / cover no-repeat;
   filter: var(--tone);
   box-shadow: 0 0 0 4px var(--paper);
 }
@@ -228,10 +249,10 @@ h2 .n {
   background-position: center;
 }
 .photo-card.beach-card {
-  background-image: linear-gradient(rgba(251, 248, 241, 0.5), rgba(251, 248, 241, 0.5)), url("/_blob/052abc7081ce8492aea38f051890505c");
+  background-image: linear-gradient(rgba(251, 248, 241, 0.22), rgba(251, 248, 241, 0.22)), url("images/plage.jpg");
 }
 .photo-card.breakfast-card {
-  background-image: linear-gradient(rgba(251, 248, 241, 0.5), rgba(251, 248, 241, 0.5)), url("/_blob/18a93d787a9ad9ba59bc661612e76ce7");
+  background-image: linear-gradient(rgba(251, 248, 241, 0.22), rgba(251, 248, 241, 0.22)), url("images/petit-dejeuner.jpg");
   background-position: center 40%;
 }
 .photo-card, .photo-card .intro { color: #2e2b26; }
@@ -242,6 +263,29 @@ h2 .n {
 .photo-card .note { color: #4a4538; border-top-color: #8a8270; }
 .photo-card a { color: #2f3524; text-decoration-color: #7a5a2e; }
 .photo-card a:hover { color: #000; }
+.photo-card.beach-card { min-height: 340px; padding-top: 8px; background-position: center top; }
+.breakfast-card .photo-top {
+  height: 250px;
+  margin-bottom: 0;
+  background-position: center 35%;
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 24px 0;
+}
+.breakfast-card .photo-top .phase { justify-content: center; text-align: center; }
+.breakfast-card .photo-top::after { background: none; }
+.breakfast-card .photo-top .phase { position: relative; z-index: 2; margin: 0; text-shadow: 0 0 8px rgba(251, 248, 241, 0.95), 0 0 3px rgba(251, 248, 241, 0.9); }
+.breakfast-card .photo-top .phase strong { color: #0b1420; }
+.breakfast-card .photo-top .when { color: #0b1420; }
+.cream-bloc {
+  background: #fbf8f1;
+  margin: 0 -24px -20px;
+  padding: 34px 24px 22px;
+  border-radius: 0 0 4px 4px;
+}
+.cream-bloc ul.todo li, .cream-bloc ul.todo li span { color: #000; font-weight: 600; }
+.photo-card.beach-card .sources { margin-top: 22px; padding-top: 16px; border-top: 1px dashed #8a8270; }
+.photo-card.beach-card .sources a { margin: 9px 0; }
 .phase {
   display: flex;
   flex-wrap: wrap;
@@ -317,29 +361,34 @@ a { color: var(--olive); font-weight: 600; overflow-wrap: anywhere; text-decorat
 .intro { color: var(--muted); margin: 0 0 8px; }
 .footer-band {
   position: relative;
-  height: 480px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   margin-top: 56px;
   border-radius: 4px;
   background-size: cover;
-  background-position: center 30%;
-  background-image: url("/_blob/9379b4ae03a74e068b7f0afb694c3912");
+  background-position: center top;
+  background-image: url("images/couple-bandeau.jpg");
   overflow: hidden;
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-items: start;
+  align-content: start;
+  padding: 96px 24px 24px;
 }
-.footer-band .tone { position: absolute; inset: 0; filter: var(--tone); background: inherit; }
-.footer-band::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(74, 81, 54, 0.55);
-}
-.footer-band span {
+.footer-band span.titre-bandeau {
   position: relative;
   z-index: 1;
-  font-family: var(--script);
-  font-size: 48px;
-  color: #fbf8f1;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(60px, 11vw, 84px);
+  line-height: 1.1;
+  background: linear-gradient(180deg, #14294a 0%, #1f4a7a 55%, #3b7bb8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 6px rgba(251, 248, 241, 0.9));
 }
 footer {
   margin-top: 16px;
@@ -350,6 +399,17 @@ footer {
   color: var(--muted);
   padding-top: 16px;
 }
+@media (min-width: 601px) {
+  .hero > .eyebrow.sky-label { top: 120px; }
+}
+@media (max-width: 600px) {
+  .hero { min-height: 420px; padding: 28px 20px; align-items: center; text-align: center; }
+  .hero-photo::after { background: linear-gradient(to bottom, rgba(30, 32, 22, 0.25) 0%, transparent 30%, rgba(30, 32, 22, 0.85) 100%); }
+  .hero > h1.hero-title { top: 18px; left: 0; right: 0; text-align: center; white-space: nowrap; font-size: 40px; }
+  .hero > .eyebrow, .hero > .lede, .hero > .fern { max-width: 100%; }
+  .footer-band { padding: 22px 16px 0; }
+  .footer-band span.titre-bandeau { font-size: 52px; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .card { transition: border-color 0.2s; }
   .card:hover { border-color: var(--sage); }
@@ -359,10 +419,9 @@ footer {
 <div class="wrap">
   <header class="hero">
     <div class="hero-photo" aria-hidden="true"></div>
-    <div class="seal" aria-hidden="true"><span>É·M</span></div>
-    <p class="eyebrow">Carnet de route</p>
-    <h1>Épouse-moi</h1>
-    <p class="lede">Le dossier, étape par étape. Petit comité, témoins uniquement, mai 2027.</p>
+    <p class="eyebrow sky-label">Carnet de route</p>
+    <h1 class="hero-title">Épouse-moi</h1>
+    <p class="lede">Le dossier, étape par étape. Petit comité, témoins uniquement, mai, juin ou même juillet 2027.</p>
     <svg class="fern" viewBox="0 0 180 46" aria-hidden="true">
       <g fill="none" stroke="#e6e0cf" stroke-width="1.2" stroke-linecap="round">
         <path d="M6 40 Q 60 20 170 12"/>
@@ -380,7 +439,6 @@ footer {
         <li><input type="checkbox" aria-label="Lieu choisi"><span>Choisir la commune : Kissamos (pour Balos), Chania ou Rethymnon. Le lieu dépend de la mairie qui célèbre.</span></li>
         <li><input type="checkbox" aria-label="Jours de cérémonie"><span>Vérifier les jours de cérémonie. À Chania, les mariages civils ont lieu uniquement le jeudi.</span></li>
       </ul>
-      <p class="note">Rethymnon n'est plus retenue par défaut : elle reste une option, pas une destination.</p>
       <div class="sources">
         <a href="https://www.chania.gr/files/57/44617/civil_marriages_documents_for_foreigners_of_abroad_no5_(en).pdf" target="_blank" rel="noopener">Mairie de Chania : documents pour étrangers résidant à l'étranger</a>
         <a href="https://www.rethymno.gr/en/foreigner/civil-weddings" target="_blank" rel="noopener">Mairie de Rethymnon : mariage civil pour étrangers</a>
@@ -447,13 +505,17 @@ footer {
 
   <section>
     <h2><span class="n">VI.</span> Après le retour</h2>
-    <div class="card photo-card breakfast-card" role="img" aria-label="Petit-déjeuner face à la mer, en Crète">
-      <p class="phase"><strong>Faire valider en France</strong><span class="when">40 jours, puis transcription</span></p>
-      <ul class="todo">
-        <li><input type="checkbox" aria-label="Enregistrement grec"><span>Faire enregistrer le mariage en Grèce dans les délais indiqués par la mairie.</span></li>
-        <li><input type="checkbox" aria-label="Traduction de l'acte"><span>Faire traduire l'acte de mariage grec en français.</span></li>
-        <li><input type="checkbox" aria-label="Transcription"><span>Demander la transcription au service central d'état civil, à Nantes, avec l'acte apostillé et sa traduction.</span></li>
-      </ul>
+    <div class="card breakfast-card">
+      <div class="band breakfast photo-top" role="img" aria-label="Petit-déjeuner face à la mer, en Crète">
+        <p class="phase"><strong>Faire valider en France</strong><span class="when">40 jours, puis transcription</span></p>
+      </div>
+      <div class="cream-bloc">
+        <ul class="todo">
+          <li><input type="checkbox" aria-label="Enregistrement grec"><span>Faire enregistrer le mariage en Grèce dans les délais indiqués par la mairie.</span></li>
+          <li><input type="checkbox" aria-label="Traduction de l'acte"><span>Faire traduire l'acte de mariage grec en français.</span></li>
+          <li><input type="checkbox" aria-label="Transcription"><span>Demander la transcription au service central d'état civil, à Nantes, avec l'acte apostillé et sa traduction.</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -480,11 +542,8 @@ footer {
     </div>
   </section>
 
-  <div class="footer-band" role="img" aria-label="Couple sur la plage, en Crète"><span>Épouse-moi</span></div>
+  <div class="footer-band" role="img" aria-label="Couple sur la plage, en Crète"><span class="titre-bandeau">Épouse-moi</span></div>
 
-  <footer>
-    Carnet établi le 7 octobre 2026. Les délais et règles sont à confirmer auprès des autorités avant toute réservation.
-  </footer>
 </div>
 
 </body></html>
